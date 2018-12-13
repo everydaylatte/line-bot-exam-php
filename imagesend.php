@@ -6,8 +6,6 @@ $access_token = 'Ou/PR4gQF8HODIhktVr42Cvy1a/HhvPVEMyzw+E6k0yHrk5rbtWBL4gZlpwLA30
 
 $channelSecret = '15f68f43b89a0b4f026005fc5ff3e81a';
 
-$pushID = 'Ue92a4b648ab700533c529a7dcb7d3317';
-
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
@@ -21,7 +19,7 @@ $content = file_get_contents('php://input');
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
     
-    if($message == "coconut"){
+    if($message == "มะพร้าว"){
         $image_url = "https://farm5.staticflickr.com/4850/32432431618_7d79442dae_o.jpg";
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "image";
@@ -39,7 +37,17 @@ $content = file_get_contents('php://input');
         $arrayPostData['messages'][0]['longitude'] = "100.532752";
         replyMsg($arrayHeader,$arrayPostData);
     }
-    
+
+ else if($message == "bye"){
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "อย่าทิ้งกันไป";
+        $arrayPostData['messages'][1]['type'] = "sticker";
+        $arrayPostData['messages'][1]['packageId'] = "1";
+        $arrayPostData['messages'][1]['stickerId'] = "131";
+        replyMsg($arrayHeader,$arrayPostData);
+    }
+
     function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
