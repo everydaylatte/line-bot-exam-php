@@ -21,8 +21,8 @@ $content = file_get_contents('php://input');
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
     
-    if($message == "chaeyeon"){
-        $image_url = "https://farm5.staticflickr.com/4844/44265541130_794143aeea_b.jpg";
+    if($message == "coconut"){
+        $image_url = "https://farm5.staticflickr.com/4850/32432431618_7d79442dae_o.jpg";
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "image";
         $arrayPostData['messages'][0]['originalContentUrl'] = $image_url;
