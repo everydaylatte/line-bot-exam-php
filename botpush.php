@@ -16,9 +16,6 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ยายกินลำไยน้ำลายยายไหลย้อย');
 $response = $bot->pushMessage($pushID, $textMessageBuilder);
 
-$imageMessageBuilder = new \LINE\LINEBot\MessageBuilder\ImageMessageBuilder('<img src="https://farm5.staticflickr.com/4844/44265541130_794143aeea_b.jpg"/>');
-$respone = $bot->pushMessage($pushID, $imageMessageBuilder);
-
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
 
