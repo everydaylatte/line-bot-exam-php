@@ -54,5 +54,7 @@ $content = file_get_contents('php://input');
         curl_close ($ch);
     }
    exit;
+
+echo "OK";
    ?>
-   echo "OK";
+   
