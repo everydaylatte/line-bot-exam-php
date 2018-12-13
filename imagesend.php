@@ -28,7 +28,7 @@ $content = file_get_contents('php://input');
         replyMsg($arrayHeader,$arrayPostData);
     }
     
-    else if($message == "พิกัดสยามพารากอน"){
+    else if($message == "พารากอน"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "location";
         $arrayPostData['messages'][0]['title'] = "สยามพารากอน";
