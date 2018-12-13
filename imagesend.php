@@ -53,8 +53,8 @@ $content = file_get_contents('php://input');
         $result = curl_exec($ch);
         curl_close ($ch);
     }
-   exit;
-
 echo "OK";
+   exit;
+?>
 
    
